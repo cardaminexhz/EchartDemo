@@ -1,7 +1,7 @@
 'use strict';
 
 // JSONP访问8090端口的远程文件piedata.js，获取饼图数据
-app.factory('PieDataLoader', ['$http', '$q',
+app.factory('PieDataLoaderJSONP', ['$http', '$q',
     function($http, $q) {
         return function() {
             var piedata = {};

@@ -3,10 +3,10 @@ var app = angular.module("EchartsDemo", []);
 app.config(['$routeProvider', function($routeProvider) {
     $routeProvider.
         when('/', {
-             controller: 'PieDataLoaderCORS',
+             controller: 'chartController',
              resolve: {
-                 piedata: ["PieDataLoaderCORS", function(PieDataLoaderCORS) {
-                    return PieDataLoaderCORS();
+                 piedata: ["PieDataLoaderJSONP", function(PieDataLoaderJSONP) {
+                    return PieDataLoaderJSONP();
                  }]
              },
              templateUrl: 'views/pieChart.html'
