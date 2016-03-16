@@ -1,7 +1,5 @@
 'use strict';
 
-var app = angular.module('EchartsDemo.directives', []);
-
 app.directive('pieChart', function() {
     return {
         restrict: "A",

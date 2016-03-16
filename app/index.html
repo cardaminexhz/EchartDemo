@@ -3,16 +3,22 @@
 <head>
     <meta charset="utf-8">
     <title>ECharts</title>
-    <!-- 引入 echarts.js -->
-    <script src="scripts/vendor/echarts.js"></script>
 </head>
 <body>
 
 <div ng-view></div>
 
+<!------------------------------ 外部js --------------------->
 <script src="scripts/vendor/angular.min.js"></script>
 <script src="scripts/vendor/angular-resource.min.js"></script>
+<!-- 引入 echarts.js -->
+<script src="scripts/vendor/echarts.js"></script>
+<script src="scripts/vendor/map/china.js"></script>
+
+<!------------------------------ 本地js --------------------->
+<script src="scripts/controllers/app.js"></script>
 <script src="scripts/controllers/pieController.js"></script>
+<script src="scripts/controllers/mapController.js"></script>
 <script src="scripts/services/services.js"></script>
 <!--<script src="scripts/directives/directives.js"></script>-->
 

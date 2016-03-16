@@ -1,18 +1,3 @@
-var app = angular.module("EchartsDemo", ['EchartsDemo.services']);
-
-app.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.
-        when('/', {
-            controller: 'pieController',
-            resolve: {
-                piedata: ["PieDataLoader", function(PieDataLoader) {
-                    return PieDataLoader();
-                }]
-            },
-            templateUrl: 'views/pieChart.html'
-        });
-}]);
-
 app.controller("pieController", ['$scope', '$http', 'piedata',
     function ($scope, $http, piedata) {
         $scope.piedata = piedata;
