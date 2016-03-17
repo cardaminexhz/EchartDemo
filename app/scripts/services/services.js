@@ -18,6 +18,7 @@ app.factory('PieDataLoaderJSONP', ['$http', '$q',
         };
     }]);
 
+// TODO: 如何共享service?
 // CORS 与server交互，获取数据
 app.factory('PieDataLoaderCORS', ['$http', '$q', '$route', '$routeParams',
     function($http, $q, $route) {
