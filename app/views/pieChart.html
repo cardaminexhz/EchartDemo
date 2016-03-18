@@ -1,7 +1,10 @@
 <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
 <!--<div pie-chart id="main" style="width: 600px;height: 400px">-->
-<div my-bar-chart style="width: 600px;height: 400px">
-    <p>barChart</p>
+<div>
+    <select ng-model="barCateItem" ng-options="c.name for c in cateArr"></select>
+    <div id="bar" style="width: 600px;height: 400px">
+        <p>barChart</p>
+    </div>
 </div>
 <hr>
 <input ng-modle="inp"> {{ inp }}
@@ -13,8 +16,8 @@
         <select ng-model="gareaNextItem" ng-options="g.name for g in gareaNext"></select>
     </div>
     <select ng-model="cateItem" ng-options="c.name for c in cateArr"></select>
-    <div my-pie-chart id="pie2" style="width: 600px;height: 400px">
-        <p>pieChart2</p>
+    <div id="pie" style="width: 600px;height: 400px">
+        <p>pieChart</p>
     </div>
 </div>
 <hr>
@@ -22,7 +25,10 @@
 <div my-pie-chart id="pie3" style="width: 600px;height: 400px">
     <p>pieChart3</p>
 </div>-->
-<div id="map" style="width: 600px;height: 400px"> </div>
+<div>
+    <select ng-model="mapCateItem" ng-options="c.name for c in cateArr"></select>
+    <div id="map" style="width: 600px;height: 400px"> </div>
+</div>
 <hr>
 <div my-map-chart style="width: 600px;height: 400px">
     <p>mapChart</p>

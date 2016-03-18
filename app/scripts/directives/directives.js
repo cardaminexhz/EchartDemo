@@ -52,7 +52,7 @@ app.directive('myPieChart', function() {
                         roseType: 'angle',
                         radius: '55%',
                         // TODO: 如何确定获取的是piedata1还是piedata2
-                        data: $scope.piedata
+                        data: $scope.chartData
                     }
                 ]
             };
