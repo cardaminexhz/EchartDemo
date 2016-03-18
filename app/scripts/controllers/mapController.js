@@ -76,14 +76,14 @@ app.controller('mapController', [
                         }
                     },
                     data:[
-                        {name: '吉林',value: randomData() },
-                        {name: '福建',value: randomData() },
-                        {name: '广东',value: randomData() },
-                        {name: '西藏',value: randomData() },
-                        {name: '四川',value: randomData() },
-                        {name: '宁夏',value: randomData() },
-                        {name: '香港',value: randomData() },
-                        {name: '澳门',value: randomData() }
+                        {value: randomData(), name: '吉林'},
+                        {value: randomData(), name: '福建'},
+                        {value: randomData(), name: '广东'},
+                        {value: randomData(), name: '西藏'},
+                        {value: randomData(), name: '四川'},
+                        {value: randomData(), name: '宁夏'},
+                        {value: randomData(), name: '香港'},
+                        {value: randomData(), name: '澳门'}
                     ]
                 },
                 {

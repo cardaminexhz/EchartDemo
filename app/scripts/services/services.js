@@ -52,15 +52,15 @@ app.factory('PieDataLoader', ['$http', '$q',
     function($http, $q) {
 
         // 针对不同的请求URL，返回不同数据
-        var doRequest = function(path) {
+        var doRequest = function(path, params) {
             var piedata = {};
             var delay = $q.defer();
-            console.log("[in doRequest] path: "+path);
+            console.log("[in doRequest] path: "+path + "; " + params);
 
             $http({
                 method: 'GET',
                 url: path
-                //params: {category: $route.current.params.category}
+                //params: params
             })
                 .success(function (data, status) {
                     piedata = data;
@@ -76,9 +76,8 @@ app.factory('PieDataLoader', ['$http', '$q',
         }
 
         return {
-          getChartData: function(path) {
-              console.log("[in getChartData] path: " + path);
-              return doRequest(path);
+          getChartData: function(path, params) {
+              return doRequest(path, params);
           }
         };
     }

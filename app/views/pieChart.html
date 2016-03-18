@@ -1,18 +1,29 @@
 <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
 <!--<div pie-chart id="main" style="width: 600px;height: 400px">-->
-<div id="pie1" style="width: 600px;height: 400px">
-    <p>pieChart1</p>
+<div my-bar-chart style="width: 600px;height: 400px">
+    <p>barChart</p>
 </div>
 <hr>
-<!--<div my-directive
-     my-url="www.baidu.com"
-     my-link-text="Click me to go to Baidu">
-</div>-->
-<div my-pie-chart id="pie2" style="width: 600px;height: 400px">
-    <p>pieChart2</p>
+<input ng-modle="inp"> {{ inp }}
+<div>
+    <div ng-controller="MyCntrl">
+        <label>省市区联动</label>
+        <select ng-model="areaItem" ng-options="c.name for c in areasArr"></select>
+        <select ng-model="areaNextItem" ng-options="n.name for n in areaNext"></select>
+        <select ng-model="gareaNextItem" ng-options="g.name for g in gareaNext"></select>
+    </div>
+    <select ng-model="cateItem" ng-options="c.name for c in cateArr"></select>
+    <div my-pie-chart id="pie2" style="width: 600px;height: 400px">
+        <p>pieChart2</p>
+    </div>
 </div>
 <hr>
 <!--
 <div my-pie-chart id="pie3" style="width: 600px;height: 400px">
     <p>pieChart3</p>
 </div>-->
+<div id="map" style="width: 600px;height: 400px"> </div>
+<hr>
+<div my-map-chart style="width: 600px;height: 400px">
+    <p>mapChart</p>
+</div>
