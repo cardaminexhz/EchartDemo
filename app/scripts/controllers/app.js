@@ -6,11 +6,11 @@ app.config(['$routeProvider', function($routeProvider) {
              controller: 'chartController',
              resolve: {
                  //TODO: 1.从services获得的数据写在此处；之后注解到controller中
-                 piedata: ["PieDataLoaderCORS", function(PieDataLoaderCORS) {
+/*                 piedata: ["PieDataLoaderCORS", function(PieDataLoaderCORS) {
                      return PieDataLoaderCORS();
-                 }],
-                 piedata2: ["PieDataLoaderCORS", function(PieDataLoaderCORS) {
-                     return PieDataLoaderCORS();
+                 }],*/
+                 piedata: ["PieDataLoader", function(PieDataLoader) {
+                     return PieDataLoader.getChartData("http://localhost:8081/statistic/list");
                  }]
              },
              templateUrl: 'views/pieChart.html'

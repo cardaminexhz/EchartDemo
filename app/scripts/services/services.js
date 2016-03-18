@@ -18,7 +18,6 @@ app.factory('PieDataLoaderJSONP', ['$http', '$q',
         };
     }]);
 
-// TODO: 如何共享service?
 // CORS 与server交互，获取数据
 app.factory('PieDataLoaderCORS', ['$http', '$q', '$route', '$routeParams',
     function($http, $q, $route) {
@@ -30,7 +29,7 @@ app.factory('PieDataLoaderCORS', ['$http', '$q', '$route', '$routeParams',
 
             $http({
                 method: 'GET',
-                url: myUrl,
+                url: myUrl
                 //params: {category: $route.current.params.category}
             })
                 .success(function (data, status) {
@@ -45,5 +44,42 @@ app.factory('PieDataLoaderCORS', ['$http', '$q', '$route', '$routeParams',
                 });
             return delay.promise;
         }
+    }
+]);
+
+// CORS 与server交互，获取数据; 改造作为【多饼图获取数据的共享服务】
+app.factory('PieDataLoader', ['$http', '$q',
+    function($http, $q) {
+
+        // 针对不同的请求URL，返回不同数据
+        var doRequest = function(path) {
+            var piedata = {};
+            var delay = $q.defer();
+            console.log("[in doRequest] path: "+path);
+
+            $http({
+                method: 'GET',
+                url: path
+                //params: {category: $route.current.params.category}
+            })
+                .success(function (data, status) {
+                    piedata = data;
+                    console.log(status + ": http get success");
+                    console.log("[in doRequest] piedata2: " + piedata);
+                    delay.resolve(piedata);
+                })
+                .error(function (data, status) {
+                    console.log(status + ": http get fail");
+                    delay.reject('Unable to fetch recipes');
+                });
+            return delay.promise;
+        }
+
+        return {
+          getChartData: function(path) {
+              console.log("[in getChartData] path: " + path);
+              return doRequest(path);
+          }
+        };
     }
 ]);

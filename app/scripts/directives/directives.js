@@ -27,17 +27,20 @@ app.directive('myPieChart', function() {
     return {
         restrict: "A",
         replace: true,
-        controller: function($scope, $attrs) {
+        controller: function($scope, $element, $attrs) {
+            // TODO: 通过同一个指令，加载两个不同的饼图：解决获取哪个DOM元素；哪个数据
 
-            // [方法1] loadPieChart()在controller中定义
-            //$scope.loadPieChart("#" + $attrs.id);
+            // 两种等价的获取DOM的形式
+            //console.log("querySelector: "+document.querySelector("#" + $attrs.id));
+            console.log("[in directive]: element: " + $element[0]);
+            console.log("[in directive]: piedata" + $scope.piedata);
 
 
             //TODO: 3.由$attrs中获得DOM ID；由$scope中获得data。完成echarts加载
-            // [方法2] TODO: 将元素ID作为参数传进来
-            // 基于准备好的dom，初始化echarts实例
             //var myChart = echarts.init(document.querySelector("#pie2"));
-            var myChart = echarts.init(document.querySelector("#" + $attrs.id));
+            //var myChart = echarts.init(document.querySelector("#" + $attrs.id));
+            // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init($element[0]);
 
             // 指定图表的配置项和数据
             var optionPie = {
