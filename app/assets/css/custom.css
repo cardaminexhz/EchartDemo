@@ -1,0 +1,33 @@
+.page-header {
+margin: 0 0 12px;
+border-bottom: 1px dotted #e2e2e2;
+padding-bottom: 5px;
+padding-top: 0px;
+}
+
+
+.dataTables_wrapper .row:first-child {
+padding-top: 8px;
+padding-bottom: 8px;
+background-color: white;
+}
+
+.dataTables_wrapper .row:last-child {
+border-bottom: 0;
+padding-top: 0 px;
+padding-bottom: 0px;
+background-color: white;
+}
+
+.ace-settings-container{
+	top:5px;
+	
+}
+.ace-settings-btn{
+	height:30px;
+	
+}
+#ace-settings-btn > i{
+	margin-top: -4px;
+}
+  

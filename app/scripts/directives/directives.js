@@ -1,23 +1,53 @@
 'use strict';
 
 // 练习
+
+app.directive("drink", function() {
+    return {
+        restrict:'AE',
+        scope:{
+            water:'@'
+        },
+        template:"<div>{{water}}</div>",
+        link: function($scope) {
+            alert($scope.water);
+        }
+    }
+});
+
+
 app.directive('myDirective', function() {
     return {
-        restrict: 'A',
+        restrict: 'EA',
         replace: true,
-        template: '<a href="{{ myUrl }}">{{ myLinkText }}123</a>',
-        scope: {
+        //template: '<a href="{{ myUrl }}">{{ myLinkText }}123</a>',
+/*        scope: {
             myUrl: '=', //绑定策略
-            myLinkText: '@' //绑定策略
+            myLinkText: '' //绑定策略
+        },*/
+        scope: {
+            water:'@'
         },
-        link: function($scope, $element, $attrs) {
+        template:"<div>{{water}}</div>",
+        link: function($element, $attrs) {
             // TODO: 获取 myUrl
-            console.log("myUrl: " + $attrs.myUrl);
-            console.log("myLinkText: " + $attrs.myLinkText);
+            alert("water: " + water);
 
-            var a = angular.element('<a>');
-            a.text("appendElement");
-            $element.append(a);
+      /*      console.log("myUrl: " + $attrs.myUrl);
+            console.log("myLinkText: " + $attrs.myLinkText);*/
+
+            alert($attrs.right);
+            alert($attrs.value);
+            alert($scope.value);
+
+            alert("待删除");
+
+            if($attrs.right == $attrs.data) {
+                alert("相同");
+                $element.remove();
+            } else {
+                alert("不同");
+            }
         }
     }
 });

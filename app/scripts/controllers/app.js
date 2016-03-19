@@ -1,10 +1,12 @@
 var app = angular.module("EchartsDemo", []);
-
-app.config(['$routeProvider', function($routeProvider, $scope) {
+app.config(['$routeProvider',function($routeProvider) {
     $routeProvider.
         when('/', {
             controller: 'chartController',
             templateUrl: 'views/pieChart.html'
+        }).when('/defraudStatis', {
+            controller: 'defraudStatisController',
+            templateUrl: 'views/defraudStatis.html'
         });
 
 /*    $routeProvider.

@@ -1,0 +1,82 @@
+<div class="row">
+    <div class="widget-box">
+        <div class="col-xs-12">
+
+            <div class="widget-header">
+                <h4 class="widget-title">诈骗者数据统计</h4>
+            </div>
+
+            <div class="widget-body">
+                <div class="widget-main">
+                    <form  class="form-inline">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <label class="col-xs-4">统计周期</label>
+
+                                <div class="col-xs-8">
+                                    <select ng-model="barByCategory" ng-options="c.name for c in cateArr"></select>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="space-6"></div>
+<!--                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="pull-right">
+                                    <button type="button" class="btn btn-sm btn-success">
+                                        <i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"> 查询</i>
+                                    </button>
+                                    <button class="btn btn-sm" type="button" >
+                                        <i class="ace-icon fa fa-undo bigger-110"> 重置</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>-->
+                    </form>
+                </div>
+
+
+<div>
+    <div class="widget-header">
+        <h4 class="widget-title">列表显示</h4>
+    </div>
+    <div class="table-div" style="position:relative;z-index:1">
+        <table class="table table-bordered">
+
+            <tr>
+                <th>城市</th>
+                <th>诈骗者数量</th>
+                <th>操作</th>
+            </tr>
+            <tr ng-repeat="item in list">
+                <td>{{ item.cityId | provinceCollection}}</td>
+                <td>{{ item.num }}</td>
+                <td><a ng-click="showDetails(item.cityId)">查看详单</a></td>
+            </tr>
+        </table>
+    </div>
+
+
+
+    <div id="bar" style="width: 600px;height: 400px">
+        <p>barChart</p>
+    </div>
+
+
+
+    <div class="table-div" style="position:relative;z-index:1" ng-show="cityId != null">
+        <table class="table table-bordered">
+
+            <tr>
+                <th>诈骗类型</th>
+                <th>诈骗者数量</th>
+            </tr>
+            <tr ng-repeat="item in defraudList">
+                <td>{{ item.defraudCategory | defraudCategoryFilter}}</td>
+                <td>{{ item.num }}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+    </div>
+</div>

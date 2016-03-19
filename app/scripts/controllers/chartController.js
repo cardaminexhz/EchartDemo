@@ -8,7 +8,7 @@ app.controller("chartController", ['$scope', '$http',
     function ($scope, $http) {
         $scope.cateArr = catetegoryArr;
         $scope.cateItem = '月';
-        $scope.url = "http://192.168.40.228:8081/reqCmDataStatisticsBean/swindletypeswindleramount";
+        $scope.url = "http://localhost:8081/statistic/list";
 
 
         // http://192.168.40.228:8081/reqCmDataStatisticsBean/swindletypeswindleramount?timetype=2
@@ -16,7 +16,7 @@ app.controller("chartController", ['$scope', '$http',
             $http({
                 method: 'GET',
                 url: $scope.url,
-                params: {timetype: 2},
+                //params: {timetype: 2},
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 }
@@ -52,15 +52,15 @@ app.controller("chartController", ['$scope', '$http',
         var doBarRequest = function() {
             $http({
                 method: 'GET',
-                url: $scope.url,
-                params: {timetype: 2},
+                url: "http://localhost:8081/statistic/bar",
+                //params: {timetype: 2},
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 }
             }).success(function(data, status) {
                 console.log(status + ": http get success");
                 $scope.chartData = data;
-                console.log("data: " + data);
+                console.log("bardata: " + data[0] + "; " + data[1]);
                 createBarChart();
             })
         }
@@ -93,7 +93,7 @@ app.controller("chartController", ['$scope', '$http',
                 xAxis:  {
                     type: 'category',
                     boundaryGap: false,
-                    data: ['北京','上海','浙江','广州','青海']
+                    data: $scope.chartData[0]
                 },
                 yAxis: {
                     type: 'value',
@@ -105,7 +105,7 @@ app.controller("chartController", ['$scope', '$http',
                     {
                         name:'最高气温',
                         type:'bar',
-                        data:[11, 11, 15, 13, 12],
+                        data: $scope.chartData[1],
                         markLine: {
                             data: [
                                 {type: 'average', name: '平均值'}
